@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="assets/tailwind/tailwind.js"></script>
+    <link rel="stylesheet" href="assets/fontawesome/css/all.min.css">
+
+    <style>
+        .toggle-checkbox {
+          appearance: none;
+          width: 2.5rem;
+          height: 1.25rem;
+          background-color: #ddd;
+          border-radius: 9999px;
+          position: relative;
+          transition: background-color 0.3s;
+        }
+        .toggle-checkbox:checked {
+          background-color: #3b82f6;
+        }
+        .toggle-checkbox::before {
+          content: "";
+          position: absolute;
+          top: 2px;
+          left: 2px;
+          width: 1rem;
+          height: 1rem;
+          background-color: white;
+          border-radius: 9999px;
+          transition: transform 0.3s;
+        }
+        .toggle-checkbox:checked::before {
+          transform: translateX(1.25rem);
+        }
+      </style>
+    
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="flex items-center justify-between bg-white text-gray-900 px-4 py-3">
+        <!-- Back Icon -->
+        <div class="flex items-center space-x-2">
+            <a href="comment.html" class="focus:outline-none mr-4">
+                <i class="fas fa-angle-left text-xl"></i>
+            </a>
+            <h1 class="text-lg font-bold">Atur Notifikasi</h1>
+        </div>
+    </header>
+
+    <div class="px-4 mt-4"> <!-- Kontainer dengan padding -->
+        <label for="notifikasi-harga" class="font-bold text-sm text-gray-800">Notifikasi Pengingat Harga</label> <!-- Label -->
+    
+        <button class="border border-gray-400 rounded-xl bg-transparent hover:border-blue-500 focus:outline-none p-4 w-full mt-1">
+            <div class="flex justify-between items-center">
+                <span class="text-gray-700">Notifikasi Pengingat Harga</span>
+                <input type="checkbox" class="toggle-checkbox" id="notifikasi-harga" />
+            </div>
+        </button>
+    </div>
+    
+    <div class="px-4 mt-4"> <!-- Kontainer dengan padding -->
+        <label for="pembagian-kupon" class="font-bold text-sm text-gray-800">Obligasi</label> <!-- Label -->
+    
+        <button class="border border-gray-400 rounded-xl bg-transparent hover:border-blue-500 focus:outline-none p-4 w-full mt-1">
+            <div class="flex justify-between items-center">
+                <span class="text-gray-700">Pembagian kupon dan principal</span>
+                <input type="checkbox" class="toggle-checkbox" id="pembagian-kupon" />
+            </div>
+        </button>
+    </div>
+    
+    <div class="px-4 mt-4"> <!-- Kontainer dengan padding -->
+        <!-- Label untuk HMETD Section -->
+        <label for="penebusan-hmetd" class="font-bold text-sm text-gray-800">HMETD</label> <!-- Label -->
+    
+        <!-- Gabungan Penebusan dan Penjualan HMETD -->
+        <button class="border border-gray-400 rounded-xl bg-transparent hover:border-blue-500 focus:outline-none p-4 w-full mt-1">
+            <div class="flex flex-col space-y-4">
+                <!-- Penebusan HMETD -->
+                <div class="flex justify-between items-center">
+                    <span class="text-gray-700">Penebusan HMETD</span>
+                    <input type="checkbox" class="toggle-checkbox" id="penebusan-hmetd" />
+                </div>
+    
+                <!-- Garis pemisah -->
+                <div class="relative">
+                    <div class="border-t border-gray-300 absolute inset-x-0 top-1/2 transform -translate-y-1/2 mx-4"></div>
+                </div>
+    
+                <!-- Penjualan HMETD -->
+                <div class="flex justify-between items-center">
+                    <span class="text-gray-700">Penjualan HMETD</span>
+                    <input type="checkbox" class="toggle-checkbox" id="penjualan-hmetd" />
+                </div>
+            </div>
+        </button>
+    </div>
+
+    <div class="px-4 mt-4"> <!-- Kontainer dengan padding -->
+        <!-- Label untuk HMETD Section -->
+        <label for="penebusan-hmetd" class="font-bold text-sm text-gray-800">Group Chat</label> <!-- Label -->
+    
+        <!-- Gabungan Penebusan dan Penjualan HMETD -->
+        <button class="border border-gray-400 rounded-xl bg-transparent hover:border-blue-500 focus:outline-none p-4 w-full mt-1">
+            <div class="flex flex-col space-y-4">
+                <!-- Penebusan HMETD -->
+                <div class="flex justify-between items-center">
+                    <span class="text-gray-700">Pesan Baru</span>
+                    <input type="checkbox" class="toggle-checkbox" id="pesan-baru" />
+                </div>
+    
+                <!-- Garis pemisah -->
+                <div class="relative">
+                    <div class="border-t border-gray-300 absolute inset-x-0 top-1/2 transform -translate-y-1/2 mx-4"></div>
+                </div>
+    
+                <!-- Penjualan HMETD -->
+                <div class="flex justify-between items-center">
+                    <span class="text-gray-700">Diundang ke Grup</span>
+                    <input type="checkbox" class="toggle-checkbox" id="diundang-ke-grup" />
+                </div>
+            </div>
+        </button>
+    </div>
+
+    <div class="px-4 mt-4"> <!-- Kontainer dengan padding -->
+        <!-- Label untuk HMETD Section -->
+        <label for="penebusan-hmetd" class="font-bold text-sm text-gray-800">Forum</label> <!-- Label -->
+    
+        <!-- Gabungan Penebusan dan Penjualan HMETD -->
+        <button class="border border-gray-400 rounded-xl bg-transparent hover:border-blue-500 focus:outline-none p-4 w-full mt-1">
+            <div class="flex flex-col space-y-4">
+                <!-- Penebusan HMETD -->
+                <div class="flex justify-between items-center">
+                    <span class="text-gray-700">Postingan dibalas</span>
+                    <input type="checkbox" class="toggle-checkbox" id="postingan-dibalas" />
+                </div>
+    
+                <!-- Garis pemisah -->
+                <div class="relative">
+                    <div class="border-t border-gray-300 absolute inset-x-0 top-1/2 transform -translate-y-1/2 mx-4"></div>
+                </div>
+    
+                <!-- Penjualan HMETD -->
+                <div class="flex justify-between items-center">
+                    <span class="text-gray-700">Postingan baru</span>
+                    <input type="checkbox" class="toggle-checkbox" id="postingan-baru" />
+                </div>
+
+                 <!-- Garis pemisah -->
+                 <div class="relative">
+                    <div class="border-t border-gray-300 absolute inset-x-0 top-1/2 transform -translate-y-1/2 mx-4"></div>
+                </div>
+
+                <div class="flex justify-between items-center">
+                    <span class="text-gray-700">Postingan disukai</span>
+                    <input type="checkbox" class="toggle-checkbox" id="postingan-disukai" />
+                </div>
+            </div>
+        </button>
+    </div>
+    
+    
+    <div class="px-4 mt-4"> <!-- Kontainer dengan padding -->
+        <label for="pembagian-kupon" class="font-bold text-sm text-gray-800">Promosi</label> <!-- Label -->
+    
+        <button class="border border-gray-400 rounded-xl bg-transparent hover:border-blue-500 focus:outline-none p-4 w-full mt-1">
+            <div class="flex justify-between items-center">
+                <span class="text-gray-700">Mendapat Koin Ajaib</span>
+                <input type="checkbox" class="toggle-checkbox" id="mendapat-koin" />
+            </div>
+        </button>
+    </div>
+
+    <div class="px-4 mt-4 mb-6"> <!-- Kontainer dengan padding -->
+        <!-- Label untuk HMETD Section -->
+        <label for="penebusan-hmetd" class="font-bold text-sm text-gray-800">Promo</label> <!-- Label -->
+    
+        <!-- Gabungan Penebusan dan Penjualan HMETD -->
+        <button class="border border-gray-400 rounded-xl bg-transparent hover:border-blue-500 focus:outline-none p-4 w-full mt-1">
+            <div class="flex flex-col space-y-4">
+                <!-- Penebusan HMETD -->
+                <div class="flex justify-between items-center">
+                    <span class="text-gray-700">Promo Coin</span>
+                    <input type="checkbox" class="toggle-checkbox" id="promo-coin" />
+                </div>
+    
+                <!-- Garis pemisah -->
+                <div class="relative">
+                    <div class="border-t border-gray-300 absolute inset-x-0 top-1/2 transform -translate-y-1/2 mx-4"></div>
+                </div>
+    
+                <!-- Penjualan HMETD -->
+                <div class="flex justify-between items-center">
+                    <span class="text-gray-700">Promo BrokerFee</span>
+                    <input type="checkbox" class="toggle-checkbox" id="promo-brokerfree" />
+                </div>
+            </div>
+        </button>
+    </div>
+
+    <div class="px-4 mt-4"> <!-- Kontainer dengan padding -->
+        <label for="pembagian-kupon" class="font-bold text-sm text-gray-800">Campaign</label> <!-- Label -->
+    
+        <button class="border border-gray-400 rounded-xl bg-transparent hover:border-blue-500 focus:outline-none p-4 w-full mt-1">
+            <div class="flex justify-between items-center">
+                <span class="text-gray-700">Marketing</span>
+                <input type="checkbox" class="toggle-checkbox" id="campaign" />
+            </div>
+        </button>
+    </div>
+
+    <div class="px-4 mt-4"> <!-- Kontainer dengan padding -->
+        <label for="pembagian-kupon" class="font-bold text-sm text-gray-800">Reksadana</label> <!-- Label -->
+    
+        <button class="border border-gray-400 rounded-xl bg-transparent hover:border-blue-500 focus:outline-none p-4 w-full mt-1">
+            <div class="flex justify-between items-center">
+                <span class="text-gray-700">Auto Order Reminder</span>
+                <input type="checkbox" class="toggle-checkbox" id="reksadana" />
+            </div>
+        </button>
+    </div>
+
+    <div class="px-4 mt-4 mb-6"> <!-- Kontainer dengan padding -->
+        <label for="pembagian-kupon" class="font-bold text-sm text-gray-800">Referral</label> <!-- Label -->
+    
+        <button class="border border-gray-400 rounded-xl bg-transparent hover:border-blue-500 focus:outline-none p-4 w-full mt-1">
+            <div class="flex justify-between items-center">
+                <span class="text-gray-700">Referral Tracker</span>
+                <input type="checkbox" class="toggle-checkbox" id="referral" />
+            </div>
+        </button>
+    </div>
+
+    <div class="px-4 mt-4 mb-6"> <!-- Kontainer dengan padding -->
+        <!-- Label untuk HMETD Section -->
+        <label for="a" class="font-bold text-sm text-gray-800">Saham</label> <!-- Label -->
+    
+        <!-- Gabungan Penebusan dan Penjualan HMETD -->
+        <button class="border border-gray-400 rounded-xl bg-transparent hover:border-blue-500 focus:outline-none p-4 w-full mt-1">
+            <div class="flex flex-col space-y-4">
+                <!-- Penebusan HMETD -->
+                <div class="flex justify-between items-center">
+                    <span class="text-gray-700 text-xs">Stop loss/Take Profit batal karena Penjualan Otomatis</span>
+                    <input type="checkbox" class="toggle-checkbox" id="al" />
+                </div>
+    
+                <!-- Garis pemisah -->
+                <div class="relative">
+                    <div class="border-t border-gray-300 absolute inset-x-0 top-1/2 transform -translate-y-1/2 mx-4"></div>
+                </div>
+    
+                <!-- Penjualan HMETD -->
+                <div class="flex justify-between items-center">
+                    <span class="text-gray-700 text-xs">Order jual dari Stop loss/Take Profit terkirim</span>
+                    <input type="checkbox" class="toggle-checkbox" id="b" />
+                </div>
+
+                <!-- Garis pemisah -->
+                <div class="relative">
+                    <div class="border-t border-gray-300 absolute inset-x-0 top-1/2 transform -translate-y-1/2 mx-4"></div>
+                </div>
+    
+                <!-- Penjualan HMETD -->
+                <div class="flex justify-between items-center">
+                    <span class="text-gray-700 text-xs">Transaction matched</span>
+                    <input type="checkbox" class="toggle-checkbox" id="c" />
+                </div>
+
+                <!-- Garis pemisah -->
+                <div class="relative">
+                    <div class="border-t border-gray-300 absolute inset-x-0 top-1/2 transform -translate-y-1/2 mx-4"></div>
+                </div>
+    
+                <!-- Penjualan HMETD -->
+                <div class="flex justify-between items-center">
+                    <span class="text-gray-700 text-xs">Order jual dari Stop loss/Take Profit terkirim</span>
+                    <input type="checkbox" class="toggle-checkbox" id="d" />
+                </div>
+
+                    <!-- Garis pemisah -->
+                    <div class="relative">
+                        <div class="border-t border-gray-300 absolute inset-x-0 top-1/2 transform -translate-y-1/2 mx-4"></div>
+                    </div>
+    
+                    
+                <div class="flex justify-between items-center">
+                    <span class="text-gray-700 text-xs">Pergerakan saham pd portfolio/watchlist 10mnt terakhir</span>
+                    <input type="checkbox" class="toggle-checkbox" id="e" />
+                </div>
+
+                    <!-- Garis pemisah -->
+                    <div class="relative">
+                        <div class="border-t border-gray-300 absolute inset-x-0 top-1/2 transform -translate-y-1/2 mx-4"></div>
+                    </div>
+    
+                    
+                <div class="flex justify-between items-center">
+                    <span class="text-gray-700 text-xs">Pergerakan harga saham di Watchlist/Portfolio</span>
+                    <input type="checkbox" class="toggle-checkbox" id="f" />
+                </div>
+
+            </div>
+        </button>
+    </div>
+
+    <div class="px-4 mt-4"> <!-- Kontainer dengan padding -->
+        <label for="pembagian-kupon" class="font-bold text-sm text-gray-800">Akun</label> <!-- Label -->
+    
+        <button class="border border-gray-400 rounded-xl bg-transparent hover:border-blue-500 focus:outline-none p-4 w-full mt-1">
+            <div class="flex justify-between items-center">
+                <span class="text-gray-700">Akun</span>
+                <input type="checkbox" class="toggle-checkbox" id="akun" />
+            </div>
+        </button>
+    </div>
+
+    
+    <div class="px-4 mt-4"> <!-- Kontainer dengan padding -->
+        <!-- Label untuk HMETD Section -->
+        <label for="penebusan-hmetd" class="font-bold text-sm text-gray-800">RDN</label> <!-- Label -->
+    
+        <!-- Gabungan Penebusan dan Penjualan HMETD -->
+        <button class="border border-gray-400 rounded-xl bg-transparent hover:border-blue-500 focus:outline-none p-4 w-full mt-1">
+            <div class="flex flex-col space-y-4">
+                <!-- Penebusan HMETD -->
+                <div class="flex justify-between items-center">
+                    <span class="text-gray-700">Top Up RDN</span>
+                    <input type="checkbox" class="toggle-checkbox" id="topup" />
+                </div>
+    
+                <!-- Garis pemisah -->
+                <div class="relative">
+                    <div class="border-t border-gray-300 absolute inset-x-0 top-1/2 transform -translate-y-1/2 mx-4"></div>
+                </div>
+    
+                <!-- Penjualan HMETD -->
+                <div class="flex justify-between items-center">
+                    <span class="text-gray-700">Penarikan RDN Sukses</span>
+                    <input type="checkbox" class="toggle-checkbox" id="trik" />
+                </div>
+
+            </div>
+        </button>
+    </div>
+    
+
+    <div class="px-4 mt-4 mb-8"> <!-- Kontainer dengan padding -->
+        <label for="pembagian-kupon" class="font-bold text-sm text-gray-800">Feed</label> <!-- Label -->
+    
+        <button class="border border-gray-400 rounded-xl bg-transparent hover:border-blue-500 focus:outline-none p-4 w-full mt-1">
+            <div class="flex justify-between items-center">
+                <span class="text-gray-700">Postingan Baru</span>
+                <input type="checkbox" class="toggle-checkbox" id="feed" />
+            </div>
+        </button>
+    </div>
+
+  
+    <script>
+        // List of checkboxes and their corresponding IDs
+        const toggles = [
+          "notifikasi-harga",
+          "pembagian-kupon",
+          "penebusan-hmetd",
+          "penjualan-hmetd",
+          "pesan-baru",
+          "diundang-ke-grup",
+          "postingan-dibalas",
+          "postingan-baru",
+          "postingan-disukai",
+          "mendapat-koin",
+          "promo-coin",
+          "promo-brokerfree",
+          "campaign",
+          "reksadana",
+          "referral",
+          "daytrading",
+          "al", // These are the actual checkboxes in your HTML
+          "b",
+          "c",
+          "d",
+          "e",
+          "f",
+          "topup",
+          "trik",
+          "akun",
+          "feed"
+        ];
+      
+        // Load toggle state from localStorage on page load
+        document.addEventListener('DOMContentLoaded', () => {
+          toggles.forEach(id => {
+            const toggleElement = document.getElementById(id);
+      
+            // Ensure the element exists before applying logic
+            if (toggleElement) {
+              const savedState = localStorage.getItem(id);
+      
+              // If saved state exists, apply it
+              if (savedState === 'true') {
+                toggleElement.checked = true;
+              }
+      
+              // Add event listener to save the state when checkbox is clicked
+              toggleElement.addEventListener('change', function () {
+                localStorage.setItem(id, toggleElement.checked);
+              });
+            }
+          });
+        });
+      </script>
+      
+</body>
+</html>

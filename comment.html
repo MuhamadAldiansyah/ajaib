@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="assets/tailwind/tailwind.js"></script>
+    <link rel="stylesheet" href="assets/fontawesome/css/all.min.css">
+    <style>
+        .active-tab .bg-blue-500 {
+            display: block;
+        }
+
+
+    </style>
+    
+</head>
+<body>
+      <!-- Header Section -->
+      <header class="flex items-center justify-between bg-white text-gray-900 px-4 py-3">
+        <!-- Back Icon -->
+        <div class="flex items-center space-x-2">
+            <a href="index.html" class="focus:outline-none mr-4">
+                <i class="fas fa-angle-left text-xl"></i> 
+            </a>
+            <h1 class="text-lg font-bold">Kotak Masuk</h1>
+        </div>
+        <!-- Settings Icon -->
+        <a href="settings.html" class="focus:outline-none">
+            <i class="fas fa-cog text-xl"></i>
+        </a>
+    </header>
+
+    <!-- Tab Section -->
+    <div class="bg-white p-4 shadow">
+        <div class="flex justify-center text-center">
+            <div class="flex divide-x divide-gray-200 relative w-full max-w-md">
+                <!-- Tab buttons -->
+                <button id="notifikasi-tab" onclick="switchTab('notifikasi')" class="w-1/2 py-2 font-semibold text-gray-500 relative">
+                    <span class="z-10 relative" onclick="navigateTo('notifikasi', event)">Notifikasi</span>
+                    <div id="underline-notifikasi" class="absolute inset-x-0 bottom-0 h-1 bg-blue-500 opacity-0"></div>
+                </button>
+                
+                <button id="chat-tab" onclick="switchTab('chat')" class="w-1/2 py-2 text-gray-500 relative">
+                    <span class="z-10 relative" onclick="navigateTo('chat', event)">Chat</span>
+                    <div id="underline-chat" class="absolute inset-x-0 bottom-0 h-1 bg-blue-500 opacity-0"></div>
+                </button>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- notifikasi -->
+     <div id="notifikasiContent">
+        <!-- Sub-tabs -->
+        <div class="bg-white px-4 py-2 flex justify-right space-x-4 border-b">
+            <button class="px-3 py-1 border border-gray-400 rounded-md text-gray-600 font-semibold">Akun</button>
+            <button class="px-3 py-1 border border-gray-400 rounded-md text-gray-600 font-semibold">Investasi</button>
+            <button class="px-3 py-1 border border-gray-400 rounded-md text-gray-600 font-semibold">Promosi</button>
+        </div>
+
+        <div class="p-4 space-y-6">
+
+
+            <!-- Repeated notifications for different dates -->
+            <div>
+                <h2 class="text-gray-500 text-sm">Selasa, 02 Mei 2024</h2>
+
+                <div class="bg-white p-0 rounded-md shadow-sm flex justify-between items-start space-x-4 mt-4">
+                    <div class="flex items-center space-x-3">
+                        <img src="img/chart.png" alt="Icon" class="w-12 h-12"> <!-- Replace with your image source -->
+                        <div>
+                            <p class="font-semibold">Order beli GOTO baru saja match.</p>
+                            <p class="text-sm text-gray-500">Tap untuk cek transaksi saham kamu.</p>
+                        </div>
+                    </div>
+                    <span class="text-xs text-gray-400">10.14 WIB</span>
+                </div>
+            </div>
+            <!-- Repeated notifications for different dates -->
+            <div>
+                <h2 class="text-gray-500 text-sm">Senin, 02 April 2024</h2>
+
+                <div class="bg-white p-0 rounded-md shadow-sm flex justify-between items-start space-x-4 mt-4">
+                    <div class="flex items-center space-x-3">
+                        <img src="img/chart.png" alt="Icon" class="w-12 h-12"> <!-- Replace with your image source -->
+                        <div>
+                            <p class="font-semibold">Order beli GOTO baru saja match.</p>
+                            <p class="text-sm text-gray-500">Tap untuk cek transaksi saham kamu.</p>
+                        </div>
+                    </div>
+                    <span class="text-xs text-gray-400">13.40 WIB</span>
+                </div>
+            </div>
+            <!-- Repeated notifications for different dates -->
+            <div>
+                <h2 class="text-gray-500 text-sm">Rabu, 02 Maret 2024</h2>
+
+                <div class="bg-white p-0 rounded-md shadow-sm flex justify-between items-start space-x-4 mt-4">
+                    <div class="flex items-center space-x-3">
+                        <img src="img/chart.png" alt="Icon" class="w-12 h-12"> <!-- Replace with your image source -->
+                        <div>
+                            <p class="font-semibold">Order beli GOTO baru saja match.</p>
+                            <p class="text-sm text-gray-500">Tap untuk cek transaksi saham kamu.</p>
+                        </div>
+                    </div>
+                    <span class="text-xs text-gray-400">09.04 WIB</span>
+                </div>
+            </div>
+            <!-- Repeated notifications for different dates -->
+            <div>
+                <h2 class="text-gray-500 text-sm">Jumat, 02 Februari 2024</h2>
+
+                <div class="bg-white p-0 rounded-md shadow-sm flex justify-between items-start space-x-4 mt-4">
+                    <div class="flex items-center space-x-3">
+                        <img src="img/chart.png" alt="Icon" class="w-12 h-12"> <!-- Replace with your image source -->
+                        <div>
+                            <p class="font-semibold">Order beli GOTO baru saja match.</p>
+                            <p class="text-sm text-gray-500">Tap untuk cek transaksi saham kamu.</p>
+                        </div>
+                    </div>
+                    <span class="text-xs text-gray-400">10.05 WIB</span>
+                </div>
+            </div>
+
+        <!-- Notification date section -->
+            <div>
+                <h2 class="text-gray-500 text-sm">Selasa, 20 Januari 2024</h2>
+                <!-- Single Notification -->
+                <div class="bg-white p-0 rounded-md shadow-sm flex justify-between items-start space-x-4 mt-4">
+                    <div class="flex space-x-3">
+                        <span class="text-blue-600 text-xl flex items-center">
+                            <img src="img/chart.png" alt="Icon" class="w-12 h-12"> <!-- Replace with your image source -->
+                        </span>
+                        <div>
+                            <p class="font-semibold">Order beli GOTO baru saja match.</p>
+                            <p class="text-sm text-gray-500">Tap untuk cek transaksi saham kamu.</p>
+                        </div>
+                    </div>
+                    <span class="text-xs text-gray-400">09.01 WIB</span>
+                </div>
+            </div>
+
+        <!-- Repeated notifications for different dates -->
+            <div>
+                <h2 class="text-gray-500 text-sm">Jumat, 02 Januari 2024</h2>
+
+                <div class="bg-white p-0 rounded-md shadow-sm flex justify-between items-start space-x-4 mt-4">
+                    <div class="flex items-center space-x-3">
+                        <img src="img/aladin.png" alt="Icon" class="w-12 h-12"> <!-- Replace with your image source -->
+                        <div>
+                            <p class="font-semibold">Saham Pertama Kamu: GOTO!</p>
+                            <p class="text-sm text-gray-500">Terima kasih sudah mulai investasi saham bersama Ajaib. Semoga tujuan keuanganmu cepat tercapai, ya.</p>
+                        </div>
+                    </div>
+                    <span class="text-xs text-gray-400">09.01 WIB</span>
+                </div>
+
+                <div class="bg-white p-0 rounded-md shadow-sm flex justify-between items-start space-x-4 mt-4">
+                    <div class="flex items-center space-x-3">
+                        <img src="img/chart.png" alt="Icon" class="w-12 h-12"> <!-- Replace with your image source -->
+                        <div>
+                            <p class="font-semibold">Order beli GOTO baru saja match.</p>
+                            <p class="text-sm text-gray-500">Tap untuk cek transaksi saham kamu.</p>
+                        </div>
+                    </div>
+                    <span class="text-xs text-gray-400">09.04 WIB</span>
+                </div>
+            </div>
+
+            <!-- Notification date section -->
+            <div>
+                <h2 class="text-gray-500 text-sm">Jumat, 02 Januari 2024</h2>
+                <!-- Single Notification -->
+                <div class="bg-white p-0 rounded-md shadow-sm flex justify-between items-start space-x-4 mt-4">
+                    <div class="flex space-x-3">
+                        <span class="text-blue-600 text-xl flex items-center">
+                            <img src="img/aladin.png" alt="Icon" class="w-12 h-12"> <!-- Replace with your image source -->
+                        </span>
+                        <div>
+                            <p class="font-semibold">Berhasil Top Up RDN.</p>
+                            <p class="text-sm text-gray-500">Rp 10.000.000 telah bertambah ke saldo RDN kamu. Cek di sini</p>
+                        </div>
+                    </div>
+                    <span class="text-xs text-gray-400">09.01 WIB</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Chat Section -->
+    <div class="p-4 space-y-6" id="chatContent">
+        <!-- Chat Item -->
+        <div>
+            <a href="chat.html" class="block">
+                <div class="bg-white p-0 rounded-md shadow-sm flex justify-between items-start space-x-4 px-4 py-4">
+                    <div class="flex items-center space-x-3">
+                        <img src="img/bbbri.png" alt="Icon" class="w-12 h-12"> <!-- Ganti dengan sumber gambar Anda -->
+                        <div>
+                            <p class="font-bold">BRI To The Moon</p>
+                            <p class="text-xs text-gray-400">image</p>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+
+    <script>
+        function switchTab(tab) {
+            // Get the tab buttons and underlines
+            const notifikasiTab = document.getElementById('notifikasi-tab');
+            const chatTab = document.getElementById('chat-tab');
+            const underlineNotifikasi = document.getElementById('underline-notifikasi');
+            const underlineChat = document.getElementById('underline-chat');
+
+            // Reset all tabs and underlines
+            notifikasiTab.classList.remove('text-blue-500', 'font-semibold');
+            notifikasiTab.classList.add('text-gray-500');
+            underlineNotifikasi.classList.add('opacity-0');
+
+            chatTab.classList.remove('text-blue-500', 'font-semibold');
+            chatTab.classList.add('text-gray-500');
+            underlineChat.classList.add('opacity-0');
+
+            // Activate the clicked tab
+            if (tab === 'notifikasi') {
+                notifikasiTab.classList.add('text-blue-500', 'font-semibold');
+                underlineNotifikasi.classList.remove('opacity-0');
+            } else if (tab === 'chat') {
+                chatTab.classList.add('text-blue-500', 'font-semibold');
+                underlineChat.classList.remove('opacity-0');
+            }
+        }
+
+        // Initialize the default active tab
+        switchTab('notifikasi');
+    </script>
+
+    <script>
+        // Function to toggle between Notification and Chat content
+        function navigateTo(contentId, event) {
+            event.preventDefault();
+            
+            // Hide all content sections
+            const sections = document.querySelectorAll("[id$='Content']");
+            sections.forEach(section => {
+                section.style.display = 'none';
+            });
+    
+            // Show the selected content
+            const activeSection = document.getElementById(contentId + 'Content');
+            if (activeSection) {
+                activeSection.style.display = 'block';
+            }
+        }
+    
+        // Set default tab on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            // Initially show the notification content and hide the chat content
+            navigateTo('notifikasi', new Event('init'));
+        });
+    
+        // Additional logic for handling the header scroll, if necessary
+        document.addEventListener('DOMContentLoaded', function() {
+            const investmentSection = document.getElementById('fixed-investment');
+            const header = document.getElementById('fixed-header');
+            const headerHeight = header.offsetHeight;
+    
+            function handleScroll() {
+                if (window.scrollY > headerHeight) {
+                    investmentSection.classList.add('visible');
+                    investmentSection.classList.remove('hidden');
+                } else {
+                    investmentSection.classList.add('hidden');
+                    investmentSection.classList.remove('visible');
+                }
+            }
+    
+            window.addEventListener('scroll', handleScroll);
+            handleScroll(); // Call this once to set the initial state
+        });
+    </script>
+</body>
+</html>

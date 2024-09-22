@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Chat with Sticky Input</title>
+  <script src="assets/tailwind/tailwind.js"></script>
+  <link rel="stylesheet" href="assets/fontawesome/css/all.min.css">
+
+  <style>
+    /* This makes the chat area scroll correctly when the keyboard is open */
+    body, html {
+      height: 100%;
+    }
+
+    .chat-container {
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+    }
+
+    .chat-area {
+      flex: 1;
+      overflow-y: auto;
+    }
+
+    .chat-input {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+
+     .chat-message {
+        max-width: 70%;
+        word-wrap: break-word;
+    }
+
+    .message-right {
+        margin-left: auto;
+        background-color: #dcf8c6;
+    }
+  </style>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+  <div class="w-full max-w-md mx-auto bg-white shadow-lg rounded-lg chat-container">
+    <!-- Chat Header -->
+    <div class="bg-white shadow-md p-4 flex items-center justify-between">
+      <div class="flex items-center">
+        <a href="comment.html" class="focus:outline-none mr-4">
+            <i class="fas fa-angle-left text-xl"></i> 
+        </a>
+        <img src="img/bbbri.png" alt="Group Icon" class="rounded-full w-12 h-12 mr-3">
+        <div>
+          <h1 class="font-bold text-gray-800">BBRI go tooooo AVG 10,000</h1>
+          <p class="text-sm text-gray-500">49,504 anggota</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chat Area -->
+    <div id="chatRoom" class="flex-1 overflow-y-auto p-4 space-y-4 chat-area">
+   
+    </div>
+
+    <!-- Input Area (Sticky at Bottom) -->
+    <div class="bg-white p-4 shadow-md w-full">
+        <div class="flex items-center space-x-3">
+            <!-- Coin icon on the left -->
+            <span class="text-yellow-500">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                        d="M12 1.5c5.247 0 9.5 4.253 9.5 9.5s-4.253 9.5-9.5 9.5-9.5-4.253-9.5-9.5S6.753 1.5 12 1.5zm0 3a6.5 6.5 0 100 13 6.5 6.5 0 000-13zm0 2.25a4.25 4.25 0 100 8.5 4.25 4.25 0 000-8.5z" />  
+                </svg>
+            </span>
+
+            <!-- Input field -->
+            <input id="messageInput" type="text" class="flex-grow p-3 border border-gray-300 rounded-lg" placeholder="Ketik pesan">
+
+            <!-- Right side icon (Image icon from FontAwesome) -->
+            <a id="userIcon" href="/upload-gambar" class="text-gray-500">
+                <i class="fas fa-image w-6 h-6"></i> <!-- FontAwesome Image Icon -->
+            </a>
+
+            <!-- Send button (Initially hidden) -->
+            <button id="sendButton" class="bg-green-500 text-white p-3 rounded-lg hidden">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+                    class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M8 12l6-6m0 0l6 6m-6-6v12" />
+                </svg>
+            </button>
+        </div>
+    </div>
+
+
+
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const messageInput = document.getElementById('messageInput');
+        const sendButton = document.getElementById('sendButton');
+        const userIcon = document.getElementById('userIcon');
+    
+        // Event listener for input field
+        messageInput.addEventListener('input', function () {
+            if (messageInput.value.trim() !== '') {
+                // Show send button, hide image
+                sendButton.classList.remove('hidden');
+                userIcon.classList.add('hidden');
+            } else {
+                // Hide send button, show image
+                sendButton.classList.add('hidden');
+                userIcon.classList.remove('hidden');
+            }
+        });
+    
+        // Optional: Hide send button and show image if the input is empty when the page loads
+        if (messageInput.value.trim() === '') {
+            sendButton.classList.add('hidden');
+            userIcon.classList.remove('hidden');
+        }
+    });
+    
+  </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const messageInput = document.getElementById('messageInput');
+        const sendButton = document.getElementById('sendButton');
+        const userIcon = document.getElementById('userIcon');
+        const chatRoom = document.getElementById('chatRoom');
+    
+        // Function to load messages from localStorage
+        function loadMessages() {
+            const messages = JSON.parse(localStorage.getItem('messages')) || [];
+            chatRoom.innerHTML = '';
+            messages.forEach(message => {
+                const messageElement = document.createElement('div');
+                messageElement.classList.add('flex', 'items-start', 'space-x-3');
+                messageElement.innerHTML = `
+                    <img src="https://via.placeholder.com/40" alt="User" class="rounded-full">
+                    <div class="bg-white p-3 rounded-lg shadow-md">
+                        <p class="text-gray-700">${message.text}</p>
+                        <p class="text-xs text-gray-400 mt-1">${message.time}</p>
+                    </div>
+                `;
+                chatRoom.appendChild(messageElement);
+            });
+            chatRoom.scrollTop = chatRoom.scrollHeight; // Scroll to the bottom
+        }
+    
+        // Function to save message to localStorage
+        function saveMessage(text) {
+            const messages = JSON.parse(localStorage.getItem('messages')) || [];
+            const time = new Date().toLocaleTimeString();
+            messages.push({ text, time });
+            localStorage.setItem('messages', JSON.stringify(messages));
+        }
+    
+        // Handle sending message
+        function sendMessage() {
+            const message = messageInput.value.trim();
+            if (message) {
+                saveMessage(message);
+                loadMessages();
+                messageInput.value = '';
+                sendButton.classList.add('hidden');
+                userIcon.classList.remove('hidden');
+            }
+        }
+    
+        sendButton.addEventListener('click', sendMessage);
+    
+        // Event listener for input field
+        messageInput.addEventListener('input', function () {
+            if (messageInput.value.trim() !== '') {
+                sendButton.classList.remove('hidden');
+                userIcon.classList.add('hidden');
+            } else {
+                sendButton.classList.add('hidden');
+                userIcon.classList.remove('hidden');
+            }
+        });
+    
+        // Load messages when the page loads
+        loadMessages();
+    });
+</script>
+
+</body>
+</html>
